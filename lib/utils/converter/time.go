@@ -25,6 +25,12 @@ func ConvertGoTimePointerToProtoTimePointer(value *time.Time) *timestamppb.Times
 	return result
 }
 
+func ConvertGoTimeToProtoTimePointer(value time.Time) *timestamppb.Timestamp {
+	result := timestamppb.New(value)
+
+	return result
+}
+
 func ConvertPointerToTime(value *time.Time) time.Time {
 	var result time.Time
 
