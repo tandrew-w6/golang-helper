@@ -40,3 +40,44 @@ func ConvertPointerToTime(value *time.Time) time.Time {
 
 	return result
 }
+
+func ConvertTimeToPointer(value time.Time) *time.Time {
+	var result *time.Time = &value
+
+	return result
+}
+
+func ConvertPointerTimeToString(value *time.Time, layout string) string {
+	result := ""
+
+	if layout == "" {
+		layout = time.RFC3339
+	}
+
+	if value != nil {
+		t := *value
+		result = t.Format(layout)
+	}
+
+	return result
+}
+
+func ConvertTimeToString(value time.Time, layout string) string {
+	if layout == "" {
+		layout = time.RFC3339
+	}
+
+	result := value.Format(layout)
+
+	return result
+}
+
+func ConvertTimeToPointerString(value time.Time, layout string) *string {
+	if layout == "" {
+		layout = time.RFC3339
+	}
+
+	result := value.Format(layout)
+
+	return &result
+}
